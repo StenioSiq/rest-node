@@ -1,0 +1,10 @@
+# Ignora configurações do VS Code
+.vscode/
+
+# Ignora arquivos de ambiente
+.env
+*.env
+
+# Ignora logs e dependências
+logs/
+node_modules/
