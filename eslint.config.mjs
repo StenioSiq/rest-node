@@ -1,10 +1,9 @@
-import globals from "globals";
-import js from "@eslint/js";
-
+import globals from 'globals';
+import js from '@eslint/js';
 export default [
   {
-    files: ["**/*.js"],
-    languageOptions: { sourceType: "commonjs" }
+    files: ['**/*. js '],
+    languageOptions: { sourceType: ' commonjs ' }
   },
   {
     languageOptions: { globals: globals.node }
@@ -12,11 +11,11 @@ export default [
   js.configs.recommended,
   {
     rules: {
-      "no-var": "error",
-      "prefer-const": "error",
-      "semi": ["error", "always"],
-      "indent": ["error", 2],
-      "quotes": ["error", "single"],
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'semi': ['error', 'always'],
+      'indent': ['error', 2],
+      'quotes': ['error', 'single'],
     }
   }
 ];
