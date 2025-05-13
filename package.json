@@ -9,6 +9,7 @@
     "nodemon": "nodemon ./bin/www "
   },
   "dependencies": {
+    "chalk": "^4.1.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.4.7",
@@ -16,7 +17,8 @@
     "http-errors": "~1.6.3",
     "jade": "^0.29.0",
     "morgan": "~1.9.1",
-    "mysql2": "^3.14.0"
+    "mysql2": "^3.14.0",
+    "node-cache": "^5.1.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
