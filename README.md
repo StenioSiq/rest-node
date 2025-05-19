@@ -1,31 +1,34 @@
 # Desafio Backend: API Express + MySQL
 
-API RESTful desenvolvida como parte do desafio de Backend da UNILAVRAS, com funcionalidades para gestão de clientes e produtos.
+API RESTful para gerenciamento de **clientes** e **produtos**, desenvolvida como parte do desafio de Backend da UNILAVRAS.
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
-### 🧑‍💻 Clientes
-- 📌 CRUD completo (Create, Read, Update, Delete)
-- 📌 Validação de campos obrigatórios: *nome, email, idade*
+### Clientes
+- CRUD completo
+- Validação: nome, email, idade
+- Cache no endpoint GET `/clientes` (30s)
+- Cache é invalidado após POST, PUT ou DELETE
+- Logs com origem da resposta: `[CACHE]` ou `[DB]`
+- Exibe tempo restante do cache nos logs
 
-### 📦 Produtos
-- 📌 CRUD completo
-- 📌 Campos obrigatórios:
-  - *Nome*
-  - *Descrição*
-  - *Preço*
-  - *Data de atualização automática*
+### Produtos
+- CRUD completo
+- Validação: nome, descrição, preço
+- Data de atualização automática
+- Cache no endpoint GET `/produtos` (30s)
+- Cache é invalidado após POST, PUT ou DELETE
+- Logs com origem da resposta: `[CACHE]` ou `[DB]`
+- Exibe tempo restante do cache nos logs
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias
 
-| Tecnologia  | Descrição                          |
-|------------|--------------------------------|
-| *Node.js*   | Ambiente de execução JavaScript |
-| *Express*   | Framework para construção da API |
-| *MySQL*     | Banco de dados relacional   |
-| *mysql2*    | Driver para conexão com MySQL |
-| *ESLint*    | Ferramenta de padronização de código |
+- Node.js + Express
+- MySQL + mysql2
+- node-cache
+- chalk (logs coloridos)
+- ESLint
 
 ---
 
-📌 Este projeto faz parte do desafio de Backend da UNILAVRAS.
+Projeto desenvolvido para o desafio de Backend da **UNILAVRAS**.
