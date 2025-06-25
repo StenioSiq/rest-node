@@ -13,7 +13,7 @@ API RESTful para gerenciamento de **clientes** e **produtos**, desenvolvida como
 - Exibe tempo restante do cache nos logs
 
 ### Produtos
-- CRUD completo
+- CRUD completosssss
 - Validação: nome, descrição, preço
 - Data de atualização automática
 - Cache no endpoint GET `/produtos` (30s)
