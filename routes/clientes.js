@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 const ClientesController = require('../controllers/ClientesController');
 const validarCliente = require('../middlewares/validarCliente');
+const { validarJWT } = require('../middlewares/validarJWT');
 
-router.get('/', ClientesController.listarTodos);
-router.post('/', validarCliente, ClientesController.criar);
-router.put('/:id', validarCliente, ClientesController.atualizar);
-router.delete('/:id', ClientesController.deletar);
+router.get('/', validarJWT, ClientesController.listarTodos);
+router.post('/', validarJWT, validarCliente, ClientesController.criar);
+router.put('/:id', validarJWT, validarCliente, ClientesController.atualizar);
+router.delete('/:id', validarJWT, ClientesController.deletar);
 
 module.exports = router;

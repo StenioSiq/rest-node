@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const clientesRouter = require('./routes/clientes');
 const produtosRouter = require('./routes/produtos');
@@ -10,12 +12,13 @@ const app = express();
 app.use(express.json());
 
 app.use('/clientes', clientesRouter);
-app.use('/produtos', produtosRouter);
+app.use('/produtos', produtosRouter); 
 app.use('/usuarios', usuariosRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 
-app.get('/', (req, res) => {res.send(' API ~ Ativa!')});
-
+app.get('/', (req, res) => {
+  res.send('API ~ Ativa!');
+});
 
 module.exports = app;

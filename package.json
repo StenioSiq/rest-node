@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "lint": "eslint \"./**/*.js\" --ignore-pattern \"node_modules/*\"",
     "lint:fix": "eslint --fix \"./**/*.js\" --ignore-pattern \"node_modules/*\"",
-    "nodemon": "nodemon ./bin/www "
+    "nodemon": "nodemon ./bin/www ",
+    "test": "jest"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
@@ -26,6 +27,9 @@
     "@eslint/js": "^9.22.0",
     "eslint": "^9.0.0",
     "globals": "^16.0.0",
-    "nodemon": "^3.1.9"
+    "jest": "^30.0.3",
+    "nodemon": "^3.1.9",
+    "supertest": "^7.1.1"
   }
 }
+

@@ -1,22 +1,21 @@
-const LoginService = require('../services/LoginService')
+const LoginService = require('../services/LoginService');
 
+class LoginController {
+  static async login(req, res) {
 
-class LoginController{
-    static async login(req, res){
-        const { user, password } = req.body;
+    const { usuario, senha } = req.body;
 
-        if (!req.body) {
-        return res.status(404).json({
-            message: 'ERRO: Não foram encontrados dados.' });
-        }
-
-        try {
-        const token = await LoginService.autenticar(user, password);
-        res.status(200).json({ auth: true, token });
-        } catch (error) {
-        res.status(401).json({ mensagem: error.message });
-        }
+    if (!usuario || !senha) {
+      return res.status(400).json({ message: 'Usuário e senha são obrigatórios.' });
     }
+
+    try {
+      const token = await LoginService.autenticar(usuario, senha);
+      res.status(200).json({ auth: true, token });
+    } catch (error) {
+      res.status(401).json({ mensagem: error.message });
+    }
+  }
 }
 
 module.exports = LoginController;
