@@ -73,8 +73,7 @@ Além disso, o sistema conta com testes automatizados utilizando **Jest**, garan
 #### Autenticação
 - `POST /login` - Login, retorna JWT
 - `POST /logout` - Logout, invalida JWT
-<br>
-<br>
+
 ### Cache
 ---
 - Implementado com NodeCache.
