@@ -60,10 +60,10 @@ Além disso, o sistema conta com testes automatizados utilizando **Jest**, garan
 - `DELETE /clientes/:id` - Remove cliente (protegido, invalida cache)
 
 #### Produtos (`/produtos`)
-- `GET /produtos` - Lista todos (protegido, usa cache)
-- `POST /produtos` - Cria produto (protegido, validação)
-- `PUT /produtos/:id` - Atualiza produto (protegido, validação)
-- `DELETE /produtos/:id` - Remove produto (protegido, invalida cache)
+- `GET /produtos` - Lista todos (cache)
+- `POST /produtos` - Cria produto 
+- `PUT /produtos/:id` - Atualiza produto (invalida cache)
+- `DELETE /produtos/:id` - Remove produto (invalida cache)
 
 #### Usuários (`/usuarios`)
 - `GET /usuarios` - Lista todos (protegido)
