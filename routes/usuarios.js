@@ -7,4 +7,6 @@ router.post('/', UsuarioController.criar);
 
 router.get('/', validarJWT, UsuarioController.listarTodos);
 
+router.delete('/:id', validarJWT, UsuarioController.deletar);
+
 module.exports = router;

@@ -1,7 +1,46 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    title= title || 'Sistema'
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/css/style.css')
   body
-    block content
+    nav
+      a(href='/index') Início
+      a(href='/produtos-web') Produtos
+      a(href='/clientes-web') Clientes
+      a(href='/usuarios-web') Usuários
+      a(href='/login') Login
+      a(href='/logout') Logout
+
+    main
+      block content
+    
+    footer
+      p © 2025 Sistema de Gerenciamento. Todos os direitos reservados.
+      .team-section
+        .team-member
+          a(href="https://github.com/StenioSiq", target="_blank")
+            img(src="https://avatars.githubusercontent.com/u/159480669?v=4", alt="Desenvolvedor 1")
+          p.member-name
+            span.initial S
+            span.full-name Stênio Siqueira
+        .team-member
+          a(href="https://github.com/YagoHT", target="_blank")
+            img(src="https://avatars.githubusercontent.com/u/169946056?v=4", alt="Desenvolvedor 3")
+          p.member-name
+            span.initial Y
+            span.full-name Yago Henrique
+        .team-member
+          a(href="https://github.com/lgalvesz", target="_blank")
+            img(src="https://avatars.githubusercontent.com/u/138880659?v=4", alt="Desenvolvedor 4")
+          p.member-name
+            span.initial L
+            span.full-name Luís Gustavo
+        .team-member
+          a(href="https://github.com/Kaua-Carvalho", target="_blank")
+            img(src="https://avatars.githubusercontent.com/u/134431788?v=4", alt="Desenvolvedor 2")
+          p.member-name
+            span.initial K
+            span.full-name Kaua Carvalho

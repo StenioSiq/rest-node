@@ -1,4 +1,5 @@
 const UsuarioService = require('../services/UsuarioService');
+const connection = require('../config/database');
 
 class UsuarioController {
   static async listarTodos(req, res) {
@@ -7,6 +8,23 @@ class UsuarioController {
       res.json(usuarios);
     } catch (error) {
       res.status(500).json({ error: error.message });
+    }
+  }
+
+  static async deletar(req, res) {
+  const { id } = req.params;
+
+    try {
+      const [resultado] = await connection.query('DELETE FROM usuarios WHERE id = ?', [id]);
+
+      if (resultado.affectedRows === 0) {
+        return res.status(404).json({ mensagem: 'Usuário não encontrado.' });
+      }
+
+      return res.status(200).json({ mensagem: 'Usuário deletado com sucesso.' });
+    } catch (error) {
+      console.error('Erro ao deletar usuário:', error);
+      return res.status(500).json({ mensagem: 'Erro ao deletar usuário.' });
     }
   }
 

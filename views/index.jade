@@ -1,5 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Bem-vindo ao sistema!
+  if usuario
+    p Olá, #{usuario}! Você está logado.
+  else
+    p Faça login para acessar as áreas restritas.
+  
+  .sobre-section
+    h2 Sobre
+    p Este é um projeto introdutório onde exploramos a integração entre Express.js e MySQL. Nele, configuramos a conexão com o banco de dados e criamos rotas básicas para manipulação de dados. 

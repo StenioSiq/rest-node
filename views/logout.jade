@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1 Sair do sistema
+  p Tem certeza que deseja sair?
+
+  form(action="/logout", method="POST")
+    .button-group
+      button(type="submit") Sim, quero sair
+      a.btn-secondary(href="/index") Não, voltar para o início

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1 Lista de Clientes
+
+  if error
+    p(style="color: red") #{error}
+
+  if clientes.length
+    table
+      thead
+        tr
+          th Nome
+          th Sobrenome
+          th Email
+          th Idade
+      tbody
+        each cliente in clientes
+          tr
+            td #{cliente.nome}
+            td #{cliente.sobrenome}
+            td #{cliente.email}
+            td #{cliente.idade}
+  else
+    p Nenhum cliente encontrado.

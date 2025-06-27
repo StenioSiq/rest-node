@@ -16,7 +16,7 @@ class LoginService {
       throw new Error('Senha incorreta');
     }
 
-    const token = jwt.sign({ id: usuario.id }, process.env.JWT_SECRET, { expiresIn: 120 });
+    const token = jwt.sign({ id: usuario.id, usuario: usuario.usuario }, process.env.JWT_SECRET, { expiresIn: 120 });
 
     await connection.query('UPDATE usuarios SET token = ? WHERE id = ?', [token, usuario.id]);
 

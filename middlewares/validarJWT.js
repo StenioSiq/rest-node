@@ -1,29 +1,48 @@
 const jwt = require('jsonwebtoken');
 
-// Blacklist simples em memória
 const blacklist = new Set();
 
 function validarJWT(req, res, next) {
+  let token;
+
   const authHeader = req.headers['authorization'];
 
-  if (!authHeader) {
+  if (authHeader) {
+    const [tipo, valor] = authHeader.split(' ');
+    if (tipo === 'Bearer' && valor) {
+      token = valor;
+    }
+  }
+
+  if (!token && req.cookies?.token) {
+    token = req.cookies.token;
+  }
+
+  const isBrowser = req.headers.accept?.includes('text/html');
+
+  if (!token) {
+    if (isBrowser) {
+      return res.redirect('/login');
+    }
     return res.status(401).json({ mensagem: 'Token não fornecido.' });
   }
 
-  const [tipo, token] = authHeader.split(' ');
-
-  if (tipo !== 'Bearer' || !token) {
-    return res.status(401).json({ mensagem: 'Formato de token inválido.' });
-  }
-
   if (blacklist.has(token)) {
+    if (isBrowser) {
+      return res.redirect('/login');
+    }
     return res.status(401).json({ mensagem: 'Token expirado ou inválido.' });
   }
 
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) return res.status(401).json({ mensagem: 'Token inválido.' });
-
+    if (err) {
+      if (isBrowser) {
+        return res.redirect('/login');
+      }
+      return res.status(401).json({ mensagem: 'Token inválido.' });
+    }  
     req.usuarioId = decoded.id;
+    req.usuario = decoded;
     req.token = token;
     next();
   });

@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 Lista de Usuários
+
+  if error
+    p(style="color: red") #{error}
+
+  if usuarios.length
+    ul
+      each user in usuarios
+        li #{user.usuario}
+  else
+    p Nenhum usuário encontrado.
