@@ -1,5 +1,5 @@
-const validarCliente = require('../middlewares/validarCliente'); // ajuste conforme seu path real
-const validarProduto = require('../middlewares/validarProduto'); // se tiver
+const validarCliente = require('../middlewares/validarCliente'); // Ajuste conforme seu path real
+const validarProduto = require('../middlewares/validarProduto');
 
 describe('Validação de campos', () => {
 
